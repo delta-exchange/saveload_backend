@@ -5,7 +5,7 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['localhost', '172.31.1.21', '10.3.14.109']
+ALLOWED_HOSTS = ['*']
 
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
@@ -16,13 +16,11 @@ MANAGERS = ADMINS
 DATABASES = {
 	"default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("TIMESCALE_DB_NAME"),
+        "NAME": os.getenv("TRADING_VIEW_DB_NAME"),
         "USER": os.getenv("TIMESCALE_USERNAME"),
         "PASSWORD": os.getenv("TIMESCALE_PASSWORD"),
         "HOST": os.getenv("TIMESCALE_HOSTNAME"),
-        "REDIS_URL": os.getenv("TRADING_ENGINE_REDIS_URL"),
         "PORT": os.getenv("TIMESCALE_PORT"),
-        # "OPTIONS": {"sslmode": os.getenv("TIMESCALE_SSL")},
     },
 }
 

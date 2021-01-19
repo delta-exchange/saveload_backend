@@ -2,7 +2,7 @@
 
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']
@@ -21,6 +21,7 @@ DATABASES = {
         "PASSWORD": os.getenv("TIMESCALE_PASSWORD"),
         "HOST": os.getenv("TIMESCALE_HOSTNAME"),
         "PORT": os.getenv("TIMESCALE_PORT"),
+		"OPTIONS": {"sslmode": os.getenv("TIMESCALE_SSL")},
     },
 }
 
